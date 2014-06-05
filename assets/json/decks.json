@@ -1,37 +1,39 @@
 {
-	"jQuery" : {
-		"questions": {
-			"&&": {
-				"a1": "And",
-				"a2": "Or",
-				"a3": "If",
-				"answer" : "a1"
-			},
-			"||": {
-				"a1": "And",
-				"a2": "Or",
-				"a3": "If",
-				"answer" : "a2"
-			},
-			">=": {
-				"a1": "Greater than",
-				"a2": "Equal to",
-				"a3": "Greater than or equal to",
-				"answer" : "a3"
-			},
-			"===": {
-				"a1": "Is",
-				"a2": "Exactly equal to",
-				"a3": "None of the above",
-				"answer" : "a2"
-			},
-			"+=": {
-				"a1": "Plus",
-				"a2": "Minus",
-				"a3": "Original value plus",
-				"answer" : "a3"
-			}
-
+	"jQuery" : [
+		{	
+			"question" : "&&", 
+			"a1": "And",
+			"a2": "Or",
+			"a3": "If",
+			"answer" : "a1"
+		},
+		{
+			"question" : "||",
+			"a1": "And",
+			"a2": "Or",
+			"a3": "If",
+			"answer" : "a2"
+		}, 
+		{
+			"question" : ">=",
+			"a1": "Greater than",
+			"a2": "Equal to",
+			"a3": "Greater than or equal to",
+			"answer" : "a3"
+		},
+		{
+			"question" : "===",
+			"a1": "Is",
+			"a2": "Exactly equal to",
+			"a3": "None of the above",
+			"answer" : "a2"
+		}, 
+		{
+			"question" : "+=",
+			"a1": "Plus",
+			"a2": "Minus",
+			"a3": "Original value plus",
+			"answer" : "a3"
 		}
-	}
+	]		
 }
