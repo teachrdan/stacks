@@ -12,7 +12,7 @@ stacksControllers.controller('questionsController', ['$scope', 'questions',
       $scope.questions = data.data
       $scope.qa = [];
       console.log(data.data)
-      angular.forEach(data.data.jQuery, function(value,key){
+      angular.forEach(data.data.regex, function(value,key){
          $scope.qa.push(value); 
       })
     })

@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	    <script src="assets/js/jquery.min.js"></script>
 	    <!-- ANGULAR.JS IMPORT -->
 	    <script src="assets/js/angular.min.js"></script>
 	    <!-- Including Angular-Route and -Resource -->
@@ -17,8 +17,16 @@
 	    <script src="assets/js/directives.js"></script>
 	</head>
 	<body ng-controller="questionsController">
-		<ul ng-repeat="question in qa">
-			<li>{{question.question}} <br /> 1) {{question.a1}} <br /> 2) {{question.a2}} <br /> 3) {{question.a3}}<br /> answer: {{question.answer}}  </li>
+		<div ng-repeat="question in qa">
+		<h1>{{question.question}}</h1>
+				1 {{question.a1}} <br />
+				2 {{question.a2}} <br />
+				3 {{question.a3}} <br />
+				4 {{question.a4}} <br />
+				<br />
+				Answer? <input ng-model="query"> <br />
+				answer: {{question.answer === query}}
+		</div>
 		</ul>
 	</body>
 </html>

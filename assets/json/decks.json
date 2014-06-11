@@ -1,39 +1,84 @@
 {
-	"jQuery" : [
+	"regex" : [
 		{	
-			"question" : "&&", 
-			"a1": "And",
-			"a2": "Or",
-			"a3": "If",
-			"answer" : "a1"
+			"question" : ".",
+			"a1" : "Any character",
+			"a2" : "Period",
+			"a3" : "End of line",
+			"a4" : "None of the above.",
+			"answer" : "1"
 		},
 		{
-			"question" : "||",
-			"a1": "And",
-			"a2": "Or",
-			"a3": "If",
-			"answer" : "a2"
+			"question" : "*",
+			"a1" : "All files",
+			"a2" : "Any number of times",
+			"a3" : "Focus on this",
+			"a4" : "None of the above.",
+			"answer" : "2"
 		}, 
 		{
-			"question" : ">=",
-			"a1": "Greater than",
-			"a2": "Equal to",
-			"a3": "Greater than or equal to",
-			"answer" : "a3"
+			"question" : "\\",
+			"a1" : "Escape next character",
+			"a2" : "Website URL follows",
+			"a3" : "Go down one directory",
+			"a4" : "None of the above.",
+			"answer" : "1"
+		}, 
+		{
+			"question" : "|",
+			"a1" : "End of line",
+			"a2" : "Pipe this command",
+			"a3" : "Or",
+			"a4" : "None of the above.",
+			"answer" : "3"
 		},
 		{
-			"question" : "===",
-			"a1": "Is",
-			"a2": "Exactly equal to",
-			"a3": "None of the above",
-			"answer" : "a2"
-		}, 
+			"question" : "(",
+			"a1" : "Start math operation",
+			"a2" : "Start a capture group",
+			"a3" : "Start a subcommand",
+			"a4" : "None of the above.",
+			"answer" : "2"
+		},
 		{
-			"question" : "+=",
-			"a1": "Plus",
-			"a2": "Minus",
-			"a3": "Original value plus",
-			"answer" : "a3"
+			"question" : "[",
+			"a1" : "Start a character class",
+			"a2" : "Start a math operation",
+			"a3" : "Star command now",
+			"a4" : "None of the above.",
+			"answer" : "1"
+		},
+		{
+			"question" : "=",
+			"a1" : "Set variable to",
+			"a2" : "Exactly equal to",
+			"a3" : "distractor",
+			"a4" : "None of the above.",
+			"answer" : "1"
+		},
+		{
+			"question" : "?",
+			"a1" : "Question",
+			"a2" : "Check validity",
+			"a3" : "Zero or one quantifier",
+			"a4" : "None of the above.",
+			"answer" : "3"
+		},
+		{
+			"question" : "+",
+			"a1" : "Add",
+			"a2" : "One or more quantifier",
+			"a3" : "Combine two commands",
+			"a4" : "None of the above.",
+			"answer" : ""
+		},
+		{
+			"question" : ")",
+			"a1" : "End capture group",
+			"a2" : "End math operation",
+			"a3" : "End command",
+			"a4" : "None of the above.",
+			"answer" : "1"
 		}
-	]		
+	]	
 }
