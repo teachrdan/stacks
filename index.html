@@ -17,16 +17,17 @@
 	    <script src="assets/js/directives.js"></script>
 	</head>
 	<body ng-controller="questionsController">
-		<div ng-repeat="question in qa">
-		<h1>{{question.question}}</h1>
-				1 {{question.a1}} <br />
-				2 {{question.a2}} <br />
-				3 {{question.a3}} <br />
-				4 {{question.a4}} <br />
+		<div class="questions">
+		<h1>{{qa[query].question}}</h1>
+				1 <span ng-click="guess = 1" ng-init="guess = 0">{{qa[query].a1}}</span><br />
+				2 <span ng-click="guess = 2" ng-init="guess = 0">{{qa[query].a2}}</span> <br />
+				3 <span ng-click="guess = 3" ng-init="guess = 0">{{qa[query].a3}}</span> <br />
+				4 <span ng-click="guess = 4" ng-init="guess = 0">{{qa[query].a4}}</span> <br />
 				<br />
-				Answer? <input ng-model="query"> <br />
-				answer: {{question.answer === query}}
+				{{guess}} vs {{qa[query].answer}}
+				answer: {{guess === qa[query].answer}}<br />
+				<button ng-click="query = query + 1"  ng-init="query=0">Next</button>
 		</div>
-		</ul>
+		
 	</body>
 </html>
