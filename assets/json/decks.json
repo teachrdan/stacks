@@ -2,6 +2,7 @@
 	"regex" : [
 		{	
 			"question" : ".",
+			"name" : "regq1",
 			"a1" : "Any character",
 			"a2" : "Period",
 			"a3" : "End of line",
@@ -10,6 +11,7 @@
 		},
 		{
 			"question" : "*",
+			"name" : "regq2",
 			"a1" : "All files",
 			"a2" : "Any number of times",
 			"a3" : "Focus on this",
@@ -18,6 +20,7 @@
 		}, 
 		{
 			"question" : "\\",
+			"name" : "regq3",
 			"a1" : "Escape next character",
 			"a2" : "Website URL follows",
 			"a3" : "Go down one directory",
@@ -26,6 +29,7 @@
 		}, 
 		{
 			"question" : "|",
+			"name" : "regq4",
 			"a1" : "End of line",
 			"a2" : "Pipe this command",
 			"a3" : "Or",
@@ -34,6 +38,7 @@
 		},
 		{
 			"question" : "(",
+			"name" : "regq5",
 			"a1" : "Start math operation",
 			"a2" : "Start a capture group",
 			"a3" : "Start a subcommand",
@@ -42,6 +47,7 @@
 		},
 		{
 			"question" : "[",
+			"name" : "regq6",
 			"a1" : "Start a character class",
 			"a2" : "Start a math operation",
 			"a3" : "Star command now",
@@ -50,6 +56,7 @@
 		},
 		{
 			"question" : "=",
+			"name" : "regq7",
 			"a1" : "Set variable to",
 			"a2" : "Exactly equal to",
 			"a3" : "distractor",
@@ -58,14 +65,17 @@
 		},
 		{
 			"question" : "?",
+			"name" : "regq8",
 			"a1" : "Question",
-			"a2" : "Check validity",
+			"name" : "regq","a2" : 
+			"Check validity",
 			"a3" : "Zero or one quantifier",
 			"a4" : "None of the above.",
 			"answer" : 3
 		},
 		{
 			"question" : "+",
+			"name" : "regq9",
 			"a1" : "Add",
 			"a2" : "One or more quantifier",
 			"a3" : "Combine two commands",
@@ -74,6 +84,7 @@
 		},
 		{
 			"question" : ")",
+			"name" : "regq10",
 			"a1" : "End capture group",
 			"a2" : "End math operation",
 			"a3" : "End command",
