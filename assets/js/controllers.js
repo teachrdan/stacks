@@ -18,3 +18,14 @@ stacksControllers.controller('questionsController', ['$scope', 'questions',
     })
   }
 ]);
+
+
+stacksControllers.controller('progressController', function(progress){
+  this.value = progress.getData();
+  this.latestData = function() {
+    return progress.getData();
+  };
+  this.update = function(val) {
+    return progress.setData(val);
+  }
+})

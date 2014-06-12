@@ -16,18 +16,25 @@
 	    <script src="assets/js/services.js"></script>
 	    <script src="assets/js/directives.js"></script>
 	</head>
-	<body ng-controller="questionsController">
+	<body>
+	<div ng-controller="questionsController">
+		<div ng-controller="progressController as m" >
 		<div class="questions">
 		<h1>{{qa[query].question}}</h1>
-				1 <span ng-click="guess = 1" ng-init="guess = 0">{{qa[query].a1}}</span><br />
-				2 <span ng-click="guess = 2" ng-init="guess = 0">{{qa[query].a2}}</span> <br />
-				3 <span ng-click="guess = 3" ng-init="guess = 0">{{qa[query].a3}}</span> <br />
-				4 <span ng-click="guess = 4" ng-init="guess = 0">{{qa[query].a4}}</span> <br />
+				answer: {{ result = (guess === qa[query].answer)}} <br />
+				1 <span ng-click="guess = 1; m.update(qa[query].name + ', ' + result)">{{qa[query].a1}}</span><br />
+				2 <span ng-click="guess = 2; m.update(qa[query].name + ', ' + result)">{{qa[query].a2}}</span> <br />
+				3 <span ng-click="guess = 3; m.update(qa[query].name + ', ' + result)">{{qa[query].a3}}</span> <br />
+				4 <span ng-click="guess = 4; m.update(qa[query].name + ', ' + result)">{{qa[query].a4}}</span> <br />
 				<br />
-				{{guess}} vs {{qa[query].answer}}
-				answer: {{guess === qa[query].answer}}<br />
-				<button ng-click="query = query + 1"  ng-init="query=0">Next</button>
+				Guess: {{guess}} vs Answer: {{qa[query].answer}}
+
+				<br />
+				
+				<button ng-click="query = query + 1; guess = 0"  ng-init="query=0">Next</button>
+				<br />what: {{qa[query].name + ', ' + result}}
 		</div>
-		
+		</div>	
+	</div>
 	</body>
 </html>
