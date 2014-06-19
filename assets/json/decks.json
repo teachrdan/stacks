@@ -101,7 +101,7 @@
 		  "a3" : "Would return \"c\" in \"abcdef\"",
 		  "answer" : 1
 		},{ 
-		  "question" : "^a\.",
+		  "question" : "^a\\.",
 		  "name" : "reg2q2",
 		  "a1" : "Would return \"a\" in \"a first\" ",
 		  "a2" : "Would return \"a first\"  in \"a first\"",
@@ -150,7 +150,7 @@
 		  "a3" : "Will match \"a new day.\" and will match \"a new day\"",
 		  "answer" : 2
 		},{
-		  "question" : "^a[^b-c]+[\.]?",
+		  "question" : "^a[^b-c]+[\\.]?",
 		  "name" : "reg2q9",
 		  "a1" : "Will match  \"a new day\" and will match \"a bad day\"",
 		  "a2" : "Will match \"a new day\" but not match \"a bad day\"",
