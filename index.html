@@ -15,26 +15,46 @@
 	    <script src="assets/js/controllers.js"></script>
 	    <script src="assets/js/services.js"></script>
 	    <script src="assets/js/directives.js"></script>
+	    <!-- Local Storage service -->
+	    <script src="assets/js/angular-local-storage.js"></script>
+	    <!-- TITLE -->
+	    <title>Stacks</title>
 	</head>
 	<body>
+
+	<div ng-controller="decksController">
+		<h2>List of Decks</h2>
+		<ul>
+			<li ng-repeat="(key,val) in decks">{{key}}</li>
+		</ul> 
+	</div>
 	<div ng-controller="questionsController">
+		
+
 		<div ng-controller="progressController as m" >
 		<div class="questions">
-		<h1>{{qa[query].question}}</h1>
-				answer: {{ result = (guess === qa[query].answer)}} <br />
-				1 <span ng-click="guess = 1; m.update(qa[query].name + ', ' + result)">{{qa[query].a1}}</span><br />
-				2 <span ng-click="guess = 2; m.update(qa[query].name + ', ' + result)">{{qa[query].a2}}</span> <br />
-				3 <span ng-click="guess = 3; m.update(qa[query].name + ', ' + result)">{{qa[query].a3}}</span> <br />
-				4 <span ng-click="guess = 4; m.update(qa[query].name + ', ' + result)">{{qa[query].a4}}</span> <br />
+		<h1>{{prompt[query].prompt}}</h1>
+				answer: {{ result = (guess === prompt[query].answer)}} <br />
+				1 <span ng-click="guess = 1; m.update(prompt[query].name + ', ' + result)">{{prompt[query].a1}}</span> <br />
+				2 <span ng-click="guess = 2; m.update(prompt[query].name + ', ' + result)">{{prompt[query].a2}}</span> <br />
+				3 <span ng-click="guess = 3; m.update(prompt[query].name + ', ' + result)">{{prompt[query].a3}}</span> <br />
+				4 <span ng-click="guess = 4; m.update(prompt[query].name + ', ' + result)">{{prompt[query].a4}}</span> <br />
 				<br />
-				Guess: {{guess}} vs Answer: {{qa[query].answer}}
-
+				Guess: {{guess}} vs Answer: {{prompt[query].answer}}
 				<br />
-				
+				What's in local storage: {{m.value}}
+				<br />
 				<button ng-click="query = query + 1; guess = 0"  ng-init="query=0">Next</button>
-				<br />what: {{qa[query].name + ', ' + result}}
+				<br />what: {{prompt[query].name + ', ' + result}}
 		</div>
 		</div>	
 	</div>
+	<!-- copy & pasted from the storage controller demo -->
+	<div ng-controller="storageController">
+	<p><input type="text" ng-model="localStorageDemo" placeholder="Start typing..."></p>
+      <p class="well" ng-show="localStorageDemoValue">
+        <p>This is in local storage: {{localStorageDemoValue}}</p>
+        <small>{{storageType}} value</small>
+      </p>
 	</body>
 </html>

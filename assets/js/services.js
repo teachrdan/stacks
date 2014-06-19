@@ -12,15 +12,6 @@ stacksServices.factory('decks', function($http) {
    return product;
 })
 
-stacksServices.factory('questions', function($http) {
-    var product = $http.get('assets/json/decks.json')
-    .success(function(data) {
-      console.log(data);
-        return data;
-  }) 
-  return product;
-})
-
 stacksServices.factory('progress', function($window,$rootScope){
   angular.element($window).on('storage', function(event){
     if(event.key === 'user-progress') {
