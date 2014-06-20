@@ -25,11 +25,13 @@
 	<div ng-controller="decksController">
 		<h2>List of Decks</h2>
 		<ul>
-			<li ng-repeat="(key,val) in decks"><p ng-model="userChoice" ng:click="userChoice='{{key}}'">{{key}}</p></li>
+			<li ng-repeat="(key,val) in decks">
+			 <p ng-model="userChoice" ng-click="setUserChoice(key)">{{key}}</p>
+		  </li>
 		</ul> 
-		<p ng-model="userChoice" ng-click="userChoice='test'">test</p>
-	<div ng-controller="questionsController" value="userChoice">
-		<p>userChoice: {{userChoice}} {{decks[userChoice]}}</p>
+		<p>You selected: {{userChoice}} <br /><br /> {{decks[userChoice]}}</p>
+  </div>
+	<div ng-controller="questionsController">
 		<div ng-controller="progressController as m" >
 		<div class="questions">
 		<h1>{{prompt[query].prompt}}</h1>
@@ -47,7 +49,7 @@
 				<br />what: {{prompt[query].name + ', ' + result}}
 		</div>
 		</div>
-	</div>
+
 	</div>
 	<!-- copy & pasted from the storage controller demo -->
 	<div ng-controller="storageController">
