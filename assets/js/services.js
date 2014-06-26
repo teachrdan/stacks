@@ -28,3 +28,25 @@ stacksServices.factory('progress', function($window,$rootScope){
     }
   }
 });
+
+stacksServices.factory('questions', ['$resource',
+  function($resource){
+    var product = $resource('assets/js/json/:deckId.json', {}, 
+    {
+      query: {method:'GET', params:{deckId:'questions'}, isArray:true}
+    })
+    console.log($resource);
+  return product;
+  }
+]);
+/*
+stacksServices.factory('questions', ['$resource',
+  function($http) {
+    //console.log($resource);
+    var product = $http.get('assets/json/:deckId.json')
+    .success(function(data) {
+        return data;
+   })
+   return product;
+}]);
+*/
