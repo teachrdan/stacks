@@ -1,0 +1,9 @@
+<div ng-controller="decksController">
+	<h2>List of Decks</h2>
+	<ul>
+		<li ng-repeat="(key,val) in decks">
+		 <p ng-model="userChoice" ng-click="setUserChoice(key)">{{key}}</p>
+	  </li>
+	</ul> 
+	<p>You selected: {{userChoice}} <br /><br /> {{decks[userChoice]}}</p>
+</div>

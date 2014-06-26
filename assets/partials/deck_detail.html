@@ -1,0 +1,19 @@
+<div ng-controller="progressController as m" >
+<div class="questions">
+  <p ng-repeat="prompt in prompts.decks">here: {{prompt}}</p>
+  <h2>Questions: {{userChoice}}</h2>
+  <h1>{{prompt[query].prompt}}</h1>
+		1 <span ng-click="guess = 1; m.update(prompt[query].name + ', ' + result)">{{prompt[query].a1}}</span> <br />
+		2 <span ng-click="guess = 2; m.update(prompt[query].name + ', ' + result)">{{prompt[query].a2}}</span> <br />
+		3 <span ng-click="guess = 3; m.update(prompt[query].name + ', ' + result)">{{prompt[query].a3}}</span> <br />
+		4 <span ng-click="guess = 4; m.update(prompt[query].name + ', ' + result)">{{prompt[query].a4}}</span> <br />
+		<br />
+		Answer: {{ result = (guess === prompt[query].answer)}} <br />
+		Guess: {{guess}} vs Answer: {{prompt[query].answer}} <br /><br />
+		<button ng-click="query = query + 1; guess = 0"  ng-init="query=0">Next</button>
+    
+    <h2>Local Storage Tests</h2>
+		What's in local storage: {{m.value}}
+		<br />Present Values: {{prompt[query].name + ', ' + result}}
+</div>
+</div>
