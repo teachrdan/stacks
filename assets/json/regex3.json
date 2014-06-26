@@ -2,22 +2,22 @@
     "regex3": {
         "questions": [
             {
-                "prompt": ")",
-                "name": "reg3q10",
-                "a1": "End capture group",
+                "prompt": ".",
+                "name": "reg3q1",
+                "a1": "Any character",
                 "a2": "End math operation",
                 "a3": "End command",
                 "a4": "None of the above.",
                 "answer": 1
             },
             {
-                "prompt": "+",
-                "name": "reg3q9",
+                "prompt": "[",
+                "name": "reg3q2",
                 "a1": "Add",
                 "a2": "One or more quantifier",
-                "a3": "Combine two commands",
+                "a3": "Begin range",
                 "a4": "None of the above.",
-                "answer": 1
+                "answer": 2
             }
         ]
     }
