@@ -1,6 +1,7 @@
 {
     "decks": {
         "regex1": {
+            "id": "regex1",
             "questions": [
                 {
                     "prompt": "!",
@@ -23,6 +24,7 @@
             ]
         },
         "regex2": {
+            "id": "regex2",
             "questions": [
                 {
                     "prompt": ")",
@@ -45,6 +47,7 @@
             ]
         },
         "regex3": {
+            "id": "regex3",
             "questions": [
                 {
                     "prompt": ".",
