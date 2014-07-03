@@ -17,7 +17,8 @@ var stacksControllers = angular.module('stacksControllers', [])
       return progress.getData();
     };
     this.update = function(val) {
-      return progress.setData(val);
+      var data = this.latestData();
+      return progress.setData(data + ', '+ val);
     }
   })
   .controller('questionsController', [ '$scope', '$routeParams',  'questions',
@@ -25,6 +26,7 @@ var stacksControllers = angular.module('stacksControllers', [])
       $scope.prompt = questions.get({ deckId: $routeParams.deckId });
       $scope.checkAnswer = function(guess, answer, prompt) {
         $scope.result = (guess === answer);
+
       }
     }
   ])
