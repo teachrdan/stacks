@@ -35,14 +35,3 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
     return product;
     }
   ]);
-  /*
-  .factory('questions', ['$resource',
-    function($http) {
-      //console.log($resource);
-      var product = $http.get('assets/json/:deckId.json')
-      .success(function(data) {
-          return data;
-     })
-     return product;
-  }]);
-  */

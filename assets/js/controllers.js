@@ -11,13 +11,8 @@ var stacksControllers = angular.module('stacksControllers', [])
       })
     }
   ])
-  .controller('questionsController', [ '$scope', '$routeParams', 'questions',
-    function($scope, $routeParams, questions) {
-      $scope.prompt = questions.get({ deckId: $routeParams.deckId });
-    }
-  ])
   .controller('progressController', function(progress){
-  this.value = progress.getData();
+    this.value = progress.getData();
     this.latestData = function() {
       return progress.getData();
     };
@@ -25,7 +20,16 @@ var stacksControllers = angular.module('stacksControllers', [])
       return progress.setData(val);
     }
   })
-  .controller('storageController', ['$scope', 'localStorageService',
+  .controller('questionsController', [ '$scope', '$routeParams',  'questions',
+    function($scope, $routeParams, questions) {
+      $scope.prompt = questions.get({ deckId: $routeParams.deckId });
+      $scope.checkAnswer = function(guess, answer, prompt) {
+        $scope.result = (guess === answer);
+      }
+    }
+  ])
+
+  /*.controller('storageController', ['$scope', 'localStorageService',
     function($scope, localStorageService) {
       $scope.$watch('localStorageDemo', function(value){
        localStorageService.set('localStorageDemo',value);
@@ -38,5 +42,5 @@ var stacksControllers = angular.module('stacksControllers', [])
     if (!localStorageService.isSupported) {
       $scope.storageType = 'Cookie';
     }
-  }
-]);
+  } 
+])*/;
