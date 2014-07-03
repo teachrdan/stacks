@@ -1,6 +1,5 @@
-<div ng-controller="progressController as m" >
 <div class="questions">
-  <p ng-repeat="prompt in prompts.decks">here: {{prompt}}</p>
+  <p ng-repeat="prompt in prompts">here: {{prompt}}</p>
   <h2>Questions: {{userChoice}}</h2>
   <h1>{{prompt[query].prompt}}</h1>
 		1 <span ng-click="guess = 1; m.update(prompt[query].name + ', ' + result)">{{prompt[query].a1}}</span> <br />
@@ -15,5 +14,4 @@
     <h2>Local Storage Tests</h2>
 		What's in local storage: {{m.value}}
 		<br />Present Values: {{prompt[query].name + ', ' + result}}
-</div>
 </div>

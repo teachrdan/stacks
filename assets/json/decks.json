@@ -1,73 +1,15 @@
-{
-    "decks": {
-        "regex1": {
+[ 
+    { 
+
             "id": "regex1",
-            "questions": [
-                {
-                    "prompt": "!",
-                    "name": "regq1",
-                    "a1": "Any character",
-                    "a2": "Period",
-                    "a3": "End of line",
-                    "a4": "None of the above.",
-                    "answer": 1
-                },
-                {
-                    "prompt": "*",
-                    "name": "regq2",
-                    "a1": "All files",
-                    "a2": "Any number of times",
-                    "a3": "Focus on this",
-                    "a4": "None of the above.",
-                    "answer": 2
-                }
-            ]
-        },
-        "regex2": {
+            "description": ""
+    },
+    {   
             "id": "regex2",
-            "questions": [
-                {
-                    "prompt": ")",
-                    "name": "reg2q1",
-                    "a1": "End capture group",
-                    "a2": "End math operation",
-                    "a3": "End command",
-                    "a4": "None of the above.",
-                    "answer": 1
-                },
-                {
-                    "prompt": "+",
-                    "name": "reg2q2",
-                    "a1": "Add",
-                    "a2": "One or more quantifier",
-                    "a3": "Combine two commands",
-                    "a4": "None of the above.",
-                    "answer": 1
-                }
-            ]
-        },
-        "regex3": {
-            "id": "regex3",
-            "questions": [
-                {
-                    "prompt": ".",
-                    "name": "reg3q1",
-                    "a1": "Any character",
-                    "a2": "End math operation",
-                    "a3": "End command",
-                    "a4": "None of the above.",
-                    "answer": 1
-                },
-                {
-                    "prompt": "[",
-                    "name": "reg3q2",
-                    "a1": "Add",
-                    "a2": "One or more quantifier",
-                    "a3": "Begin range",
-                    "a4": "None of the above.",
-                    "answer": 2
-                }
-            ]
-        }
+            "description": ""
+    },
+    {   
+        "id": "regex3",
+        "description": ""
     }
-}
+]

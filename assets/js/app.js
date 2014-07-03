@@ -18,7 +18,7 @@ var stacksApp = angular.module('stacksApp', [
 stacksApp.config(function($routeProvider, $locationProvider) {
 	
   // use the HTML5 History API
-  $locationProvider.html5Mode(true);
+  // $locationProvider.html5Mode(true);
 
   $routeProvider
    	.when('/', {

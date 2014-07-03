@@ -1,24 +1,20 @@
-{
-    "regex1": {
-        "questions": [
-            {
-                "prompt": "!",
-                "name": "regq1",
-                "a1": "Any character",
-                "a2": "Period",
-                "a3": "End of line",
-                "a4": "None of the above.",
-                "answer": 1
-            },
-            {
-                "prompt": "*",
-                "name": "regq2",
-                "a1": "All files",
-                "a2": "Any number of times",
-                "a3": "Focus on this",
-                "a4": "None of the above.",
-                "answer": 2
-            }
-        ]
+[
+    {
+        "prompt": "!",
+        "name": "regq1",
+        "a1": "Any character",
+        "a2": "Period",
+        "a3": "End of line",
+        "a4": "None of the above.",
+        "answer": 1
+    },
+    {
+        "prompt": "*",
+        "name": "regq2",
+        "a1": "All files",
+        "a2": "Any number of times",
+        "a3": "Focus on this",
+        "a4": "None of the above.",
+        "answer": 2
     }
-}
+]

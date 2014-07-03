@@ -6,22 +6,14 @@ var stacksControllers = angular.module('stacksControllers', [])
   .controller('decksController', ['$scope', 'decks',
     function($scope, decks) {
       decks.then(function(data) {
-        $scope.decks = data.data.decks;
-        // added by margot to create a function we can call on ng-click of a deck name
-        $scope.setUserChoice = function(choice){
-          return $scope.userChoice = choice;
-        }
+        $scope.decks = data.data;
+
       })
     }
   ])
-  .controller('questionsController', [ '$scope', 'decks',
-    function($scope, decks) {
-      decks.then(function(data){        
-        $scope.prompt = [];
-        angular.forEach(data.data.decks.regex2.questions, function(value,key){
-          $scope.prompt.push(value);
-        })
-      });
+  .controller('questionsController', [ '$scope', '$routeParams', 'questions',
+    function($scope, $routeParams, questions) {
+      $scope.prompt = questions.get({ deckId: $routeParams.deckId });
     }
   ])
   .controller('progressController', function(progress){

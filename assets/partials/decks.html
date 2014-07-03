@@ -1,13 +1,8 @@
-<div ng-controller="decksController">
+<div>
 	<h2>List of Decks</h2>
 	<ul>
-		<li ng-repeat="(key,val) in decks">
-		 <p ng-model="userChoice" ng-click="setUserChoice(key)">{{key}}</p>
+		<li ng-repeat="deck in decks">
+		 <p ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}">{{deck.id}}</a></p>
 	  </li>
 	</ul> 
-	<p>You selected: <a ng-href="/{{userChoice}}">{{userChoice}}</a></p>
-   <br /><br />
-   <p>{{decks[userChoice]}}</p>
 </div>
-
-<!-- <a href="/{{story.properties.id}}"><h2>{{story.properties.name}}</h2></a> -->
