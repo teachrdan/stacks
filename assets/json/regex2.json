@@ -1,20 +1,67 @@
 [
     {
-        "prompt": ")",
+        "prompt": "+",
         "name": "reg2q1",
-        "a1": "End capture group",
-        "a2": "End math operation",
-        "a3": "End command",
+        "a1": "Match preceding element one or more times",
+        "a2": "Match preceding element zero or one time",
+        "a3": "Match preceding element zero or more times",
         "a4": "None of the above.",
         "answer": 1
     },
     {
-        "prompt": "+",
+        "prompt": "?",
         "name": "reg2q2",
-        "a1": "Add",
-        "a2": "One or more quantifier",
-        "a3": "Combine two commands",
+        "a1": "Match preceding element one or more times",
+        "a2": "Match preceding element zero or one time",
+        "a3": "Match preceding element zero or more times",
+        "a4": "None of the above.",
+        "answer": 2
+    },
+    {
+        "prompt": "[^a]",
+        "name": "reg2q3",
+        "a1": "Match uppercase or lowercase a",
+        "a2": "Match a at the beginning of the line",
+        "a3": "Ignore the lowercase a",
+        "a4": "None of the above",
+        "answer": 3
+    },
+    {
+        "prompt": "a{2,5}",
+        "name": "reg2q4",
+        "a1": "Match a at least twice but no more than five times",
+        "a2": "Match a at least twice but less than five times",
+        "a3": "Match a at least two times in five different places",
         "a4": "None of the above.",
         "answer": 1
+    },
+    {
+        "prompt": "a{3,}",
+        "name": "reg2q5",
+        "a1": "Match a exactly three times",
+        "a2": "Match a three or more times",
+        "a3": "Match a fewer than three times",
+        "a4": "None of the above.",
+        "answer": 2
+    },
+    {
+        "prompt": "aa|bb",
+        "name": "reg2q6",
+        "a1": "Match aa before bb",
+        "a2": "Match aa or bb",
+        "a3": "Match abab",
+        "a4": "None of the above.",
+        "answer": 2
     }
 ]
+/*
+        {
+        "prompt": "",
+        "name": "reg2q",
+        "a1": "",
+        "a2": "",
+        "a3": "",
+        "a4": "None of the above.",
+        "answer": 
+    },
+*/

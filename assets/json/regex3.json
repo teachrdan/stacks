@@ -1,20 +1,49 @@
 [
     {
-        "prompt": ".",
+        "prompt": "(?=5)[AB]",
         "name": "reg3q1",
-        "a1": "Any character",
-        "a2": "End math operation",
-        "a3": "End command",
+        "a1": "Match A in A5B",
+        "a2": "Match B in A5B",
+        "a3": "Match A and B in A5B",
         "a4": "None of the above.",
         "answer": 1
     },
     {
-        "prompt": "[",
+        "prompt": "(?=0)[yz]",
         "name": "reg3q2",
-        "a1": "Add",
-        "a2": "One or more quantifier",
-        "a3": "Begin range",
+        "a1": "Match y in y0z",
+        "a2": "Match z in y0z",
+        "a3": "Match y and z in y0z",
+        "a4": "None of the above.",
+        "answer": 2
+    },
+    {
+        "prompt": "(?!5)cat|dog",
+        "name": "reg2q3",
+        "a1": "Match cat5dog in cat5dog",
+        "a2": "Match cat in cat5dog",
+        "a3": "Match dog in cat5dog",
+        "a4": "None of the above.",
+        "answer": 3
+    },
+    {
+        "prompt": "(?<!0)up|down",
+        "name": "reg2q4",
+        "a1": "Match up in 0up1down",
+        "a2": "Match down in 0up1down",
+        "a3": "Match up1down in 0up1down",
         "a4": "None of the above.",
         "answer": 2
     }
 ]
+/*
+        {
+        "prompt": "",
+        "name": "reg3q",
+        "a1": "",
+        "a2": "",
+        "a3": "",
+        "a4": "None of the above.",
+        "answer": 
+    },
+*/

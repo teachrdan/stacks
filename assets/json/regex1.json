@@ -1,20 +1,148 @@
 [
     {
         "prompt": "!",
-        "name": "regq1",
-        "a1": "Any character",
-        "a2": "Period",
-        "a3": "End of line",
+        "name": "reg1q1",
+        "a1": "Period",
+        "a2": "End of line",
+        "a3": "Any character",
+        "a4": "None of the above.",
+        "answer": 3
+    },
+    {
+        "prompt": "*",
+        "name": "reg1q2",
+        "a1": "Match any character",
+        "a2": "Match preceding character any number of times",
+        "a3": "Match any number",
+        "a4": "None of the above.",
+        "answer": 2
+    },
+    {
+        "prompt": ".",
+        "name": "reg1q3",
+        "a1": "Match any number",
+        "a2": "Match any character",
+        "a3": "Match any non-printing character",
+        "a4": "None of the above.",
+        "answer": 2
+    },
+    {
+        "prompt": "[0-9]",
+        "name": "reg1q4",
+        "a1": "Match any number",
+        "a2": "Match every number",
+        "a3": "Match 0 or 9",
         "a4": "None of the above.",
         "answer": 1
     },
     {
-        "prompt": "*",
-        "name": "regq2",
-        "a1": "All files",
-        "a2": "Any number of times",
-        "a3": "Focus on this",
+        "prompt": "[a-p]",
+        "name": "reg1q5",
+        "a1": "Match the letters a or p",
+        "a2": "Match every letter from a to p",
+        "a3": "Ignore the letters a and p",
         "a4": "None of the above.",
         "answer": 2
+    },
+    {
+        "prompt": "[a,p]",
+        "name": "reg1q6",
+        "a1": "Match the letters a or p",
+        "a2": "Match every letter from a to p",
+        "a3": "Ignore the letters a and p",
+        "a4": "None of the above.",
+        "answer": 1
+    },
+    {
+        "prompt": "[ap]",
+        "name": "reg1q7",
+        "a1": "Match ap.",
+        "a2": "Match a through p",
+        "a3": "Capture a through p",
+        "a4": "None of the above.",
+        "answer": 4
+    }
+    {
+        "prompt": "*",
+        "name": "reg1q8",
+        "a1": "Match preceding element one or more times",
+        "a2": "Match preceding element zero or one time",
+        "a3": "Match preceding element zero or more times",
+        "a4": "None of the above.",
+        "answer": 3
+    },
+    {
+        "prompt": "\\d",
+        "name": "reg1q9",
+        "a1": "Match any single non-numerical digit",
+        "a2": "Match any single word character",
+        "a3": "Match any single numerical digit",
+        "a4": "None of the above.",
+        "answer": 3
+    },
+    {
+        "prompt": "\\D",
+        "name": "reg1q10",
+        "a1": "Match any single non-numerical digit",
+        "a2": "Match any single word character",
+        "a3": "Match any single numerical digit",
+        "a4": "None of the above.",
+        "answer": 1
+    }
+    {
+        "prompt": "\\w",
+        "name": "reg1q11",
+        "a1": "Match any single non-word character",
+        "a2": "Match any single word character",
+        "a3": "Match any word or non-word character",
+        "a4": "None of the above.",
+        "answer": 2
+    },
+    {
+        "prompt": "\\W",
+        "name": "reg1q12",
+        "a1": "Match any single non-word character",
+        "a2": "Match any single word character",
+        "a3": "Match any word or non-word character",
+        "a4": "None of the above.",
+        "answer": 1
+    },
+    {
+        "prompt": "{3}",
+        "name": "reg1q13",
+        "a1": "Match exactly three times",
+        "a2": "Match fewer than three times",
+        "a3": "Match three or more times",
+        "a4": "None of the above.",
+        "answer": 1
+    },
+    {
+        "prompt": "a$",
+        "name": "reg1q14",
+        "a1": "Match a and any character after it",
+        "a2": "Match a at the end of a line",
+        "a3": "Match uppercase or lowercase a",
+        "a4": "None of the above.",
+        "answer": 2
+    },
+     {
+        "prompt": "(aaa)",
+        "name": "reg1q15",
+        "a1": "Capture aaa",
+        "a2": "Ignore aaa",
+        "a3": "Match aaa",
+        "a4": "None of the above.",
+        "answer": 1
     }
 ]
+/*
+        {
+        "prompt": "",
+        "name": "reg1q",
+        "a1": "",
+        "a2": "",
+        "a3": "",
+        "a4": "None of the above.",
+        "answer": 
+    },
+*/
