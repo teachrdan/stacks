@@ -1,0 +1,20 @@
+[
+    {
+        "prompt": "!",
+        "name": "reg1q1",
+        "a1": "Period",
+        "a2": "End of line",
+        "a3": "Any character",
+        "a4": "None of the above.",
+        "answer": 3
+    },
+    {
+        "prompt": "*",
+        "name": "reg1q2",
+        "a1": "Match any character",
+        "a2": "Match preceding character any number of times",
+        "a3": "Match any number",
+        "a4": "None of the above.",
+        "answer": 2
+    }
+]

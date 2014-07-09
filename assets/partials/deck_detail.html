@@ -1,6 +1,17 @@
+<title>Stacks</title>
+<div ng-repeat="question in questions">
+<h1>{{question[number].prompt}}</h1><br />
+<span ng-model="guess" ng-init="guess=0" ng-click="guess=1">{{question[number].a1}}</span> <br />
+<span ng-model="guess" ng-init="guess=0" ng-click="guess=2">{{question[number].a2}}</span> <br />
+<span ng-model="guess" ng-init="guess=0" ng-click="guess=3">{{question[number].a3}}</span> <br />
+<span ng-model="guess" ng-init="guess=0" ng-click="guess=4">{{question[number].a4}}</span> <br />
+<h1><span ng-model="result"{{guess==question[number].answer}}</h1>
+<button ng-click = "number = number + 1"></button> <br />
+<i>Question #{{number + 1}}</i>
+</div>
+<!--
 <div ng-controller="progressController as m">
 	<div class="questions">
-	  <p ng-repeat="prompt in prompts">here: {{prompt}}</p>
 	  <h2>Questions: {{userChoice}}</h2>
 	  <h1>{{prompt[query].prompt}}</h1>
 			1 <span ng-click="guess=1; checkAnswer(guess,prompt[query].answer, prompt); m.update(prompt[query].name +', '+result);">{{prompt[query].a1}}</span> <br />
@@ -17,3 +28,4 @@
 			<br />Present Values: {{prompt[query].name + ', ' + result}}
 	</div>
 </div>
+-->

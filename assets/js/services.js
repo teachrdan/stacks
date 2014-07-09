@@ -28,10 +28,12 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
   })
   .factory('questions', ['$resource',
     function($resource) {
-      var product = $resource('assets/json/:deckId.json', {}, 
-      {
-        get: {method:'GET', params:{}, isArray:true}
+      return $resource('assets/json/:deckId.json', {}, {
+        query: {
+          method:'GET',
+          transformResponse: function (data) {return angular.fromJson(data).list},
+          isArray:true
+        }
       })
-    return product;
     }
   ]);

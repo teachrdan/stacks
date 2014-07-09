@@ -7,7 +7,6 @@ var stacksControllers = angular.module('stacksControllers', [])
     function($scope, decks) {
       decks.then(function(data) {
         $scope.decks = data.data;
-
       })
     }
   ])
@@ -21,16 +20,21 @@ var stacksControllers = angular.module('stacksControllers', [])
       return progress.setData(data + ', '+ val);
     }
   })
-  .controller('questionsController', [ '$scope', '$routeParams',  'questions',
+  .controller('questionsController', ['$scope','$routeParams', 'questions',
     function($scope, $routeParams, questions) {
-      $scope.prompt = questions.get({ deckId: $routeParams.deckId });
+      //$scope.prompts = allPrompts.query();
+      var questions = questions.get({deckId: $routeParams.deckId});
+      $scope.questions = questions;
+      var number = 0;
+      $scope.number = number;
+    }
+      /*
       $scope.checkAnswer = function(guess, answer, prompt) {
         $scope.result = (guess === answer);
-
       }
     }
+    */
   ])
-
   /*.controller('storageController', ['$scope', 'localStorageService',
     function($scope, localStorageService) {
       $scope.$watch('localStorageDemo', function(value){
