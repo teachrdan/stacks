@@ -34,4 +34,13 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
       })
     return product;
     }
-  ]);
+  ])
+  .factory('localstorage', function($window,$rootScope){
+    return { 
+        update: function(val,data) {
+          data.results.push(val)
+          return data;
+        }
+
+    } ;
+  });
