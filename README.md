@@ -1,6 +1,6 @@
 #TODO
-- Get mulitple decks working
-- Get local storage fully functional
+- Dan: Make pretty display of local storage as it changes. The challenge is to get it to update every time it changes.
+- Margot: Write a results page that shows the results in local storage.
 
 #MVP
 
