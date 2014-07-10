@@ -18,11 +18,13 @@ var stacksControllers = angular.module('stacksControllers', [])
     this.update = function(val) {
       var data = this.latestData();
       return progress.setData(data + ', '+ val);
-    }
+    };
+    this.clear = function() {
+      return progress.setData(null);
+    };
   })
   .controller('questionsController', ['$scope','$routeParams', 'questions',
     function($scope, $routeParams, questions) {
-      //$scope.prompts = allPrompts.query();
       var questions = questions.get({deckId: $routeParams.deckId});
       $scope.questions = questions;
       var number = 0;

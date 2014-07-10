@@ -1,13 +1,19 @@
 <title>Stacks</title>
-<div ng-repeat="question in questions">
-<h1>{{question[number].prompt}}</h1><br />
-<span ng-model="guess" ng-init="guess=0" ng-click="guess=1">{{question[number].a1}}</span> <br />
-<span ng-model="guess" ng-init="guess=0" ng-click="guess=2">{{question[number].a2}}</span> <br />
-<span ng-model="guess" ng-init="guess=0" ng-click="guess=3">{{question[number].a3}}</span> <br />
-<span ng-model="guess" ng-init="guess=0" ng-click="guess=4">{{question[number].a4}}</span> <br />
-<h1><span ng-model="result"{{guess==question[number].answer}}</h1>
-<button ng-click = "number = number + 1"></button> <br />
-<i>Question #{{number + 1}}</i>
+<div ng-controller="progressController as prog">
+	<div ng-repeat="question in questions">
+	<i>Question #{{number + 1}}:</i>
+	<h1>{{question[number].prompt}}</h1><br />
+	1. <span ng-model="guess" ng-init="guess=0" ng-click="guess=1; result=(guess==question[number].answer); prog.update(question[number].name + ':' +result); number = number+1; ">{{question[number].a1}}</span> <br />
+	2. <span ng-model="guess" ng-init="guess=0" ng-click="guess=2; result=(guess==question[number].answer); prog.update(question[number].name + ':' +result); number = number+1;">{{question[number].a2}}</span> <br />
+	3. <span ng-model="guess" ng-init="guess=0" ng-click="guess=3; result=(guess==question[number].answer); prog.update(question[number].name + ':' +result); number = number+1;">{{question[number].a3}}</span> <br />
+	4. <span ng-model="guess" ng-init="guess=0" ng-click="guess=4; result=(guess==question[number].answer); prog.update(question[number].name + ':' +result); number = number+1;">{{question[number].a4}}</span> <br />
+
+	<h1><span ng-model="result" ng-init="result=null">{{guess==question[number].answer}}</h1>
+	<button ng-click="number = number + 1; guess = 0; prog.update(question[number].prompt + ':' +result);">Next</button> <br />
+	<p>What's in local storage: {{prog.value}}<p>
+	<button ng-click"prog.clear()">CLEAR</button>
+	</div>
+
 </div>
 <!--
 <div ng-controller="progressController as m">
