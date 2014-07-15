@@ -77,3 +77,4 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
       }
     }
   }]);
+

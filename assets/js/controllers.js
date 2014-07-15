@@ -7,12 +7,11 @@ var stacksControllers = angular.module('stacksControllers', [])
     function($scope, decks) {
       decks.then(function(data) {
         $scope.decks = data.data;
-
       })
     }
   ])
-  .controller('progressController', ['$scope', '$filter', 'localstorage', 'progress', 'stringTime',
-    function($scope, $filter, localstorage, progress, stringTime) {
+  .controller('progressController', ['$scope', 'localstorage', 'progress', 'stringTime',
+    function($scope, localstorage, progress, stringTime) {
       this.value = progress.getData();
       this.latestData = function() {
         return progress.getData();
@@ -26,12 +25,10 @@ var stacksControllers = angular.module('stacksControllers', [])
         if(data != null ) { 
           var dataObject = angular.fromJson(data);
         } else {
-          //var dataObject = angular.fromJson('{"results" : [{ "what":"ever"} ]}');
-          console.log("meow "+stringTime.makeIt(''));
           var dataObject = angular.fromJson(stringTime.makeIt(''));
         }
         // mush the two together
-        console.log("this is what I pass to update");
+        console.log("this is the data I pass to update");
         console.log(dataObject);
         var updated = localstorage.update(valObject,dataObject);
         // make them a string cause fuck data storage
@@ -49,5 +46,24 @@ var stacksControllers = angular.module('stacksControllers', [])
       $scope.checkAnswer = function(guess, answer, prompt) {
         $scope.result = (guess === answer);
       }
+    }
+  ])
+  .controller('resultsController', ['$scope', 'progress',
+    function($scope,progress) {
+      var storedData = angular.fromJson(progress.getData());
+      $scope.results = storedData.results;
+      $scope.qfalse = [];
+      $scope.qtrue = [];
+      angular.forEach($scope.results, function(value,key){
+        angular.forEach(value, function(value,key){
+          console.log(value);
+          if(value == "true") {
+            $scope.qtrue.push(key);
+          }
+          if(value == "false") {
+            $scope.qfalse.push(key);
+          } 
+        })
+      });
     }
   ]);

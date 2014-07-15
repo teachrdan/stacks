@@ -25,6 +25,10 @@ stacksApp.config(function($routeProvider, $locationProvider) {
       templateUrl: 'assets/partials/decks.html',
       controller: 'decksController'
     })
+    .when('/results', {
+      templateUrl: 'assets/partials/results_detail.html',
+      controller: 'resultsController'
+    })
     .when('/:deckId', {
       templateUrl: 'assets/partials/deck_detail.html',
       controller: 'questionsController'
