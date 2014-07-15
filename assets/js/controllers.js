@@ -56,7 +56,6 @@ var stacksControllers = angular.module('stacksControllers', [])
       $scope.qtrue = [];
       angular.forEach($scope.results, function(value,key){
         angular.forEach(value, function(value,key){
-          console.log(value);
           if(value == "true") {
             $scope.qtrue.push(key);
           }
