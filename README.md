@@ -1,7 +1,6 @@
 #TODO
 - Dan: Make pretty display of local storage as it changes. The challenge is to get it to update every time it changes.
-- Margot: Write a results page that shows the results in local storage.
-
+- Margot: Add way to associate results in storage with deck name, show results by deck 
 #MVP
 
 Read: X# of questions for first deck.
