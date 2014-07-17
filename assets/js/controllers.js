@@ -11,8 +11,8 @@ var stacksControllers = angular.module('stacksControllers', [])
       })
     }
   ])
-  .controller('progressController', ['$scope', '$filter', 'localstorage', 'progress', 'stringTime',
-    function($scope, $filter, localstorage, progress, stringTime) {
+  .controller('progressController', ['$scope', '$localStorage', 'localstorage', 'progress', 'stringTime',
+    function($scope, $localStorage, localstorage, progress, stringTime) {
       this.value = progress.getData();
       this.latestData = function() {
         return progress.getData();
@@ -41,6 +41,12 @@ var stacksControllers = angular.module('stacksControllers', [])
         // put it back in storage
         return progress.setData(string);
       }
+      $scope.$storage = $localStorage.$default({
+        showLocal: []
+      });
+    $scope.$deleteLocal = function() {
+      delete $scope.$storage.showLocal;
+    };
     }
   ])
   .controller('questionsController', ['$scope', '$routeParams', 'questions',

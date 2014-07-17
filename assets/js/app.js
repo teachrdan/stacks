@@ -4,16 +4,10 @@
 
 var stacksApp = angular.module('stacksApp', [
 	'ngRoute',
+  'ngStorage',
 	'stacksControllers',
-	'stacksServices',
-  'LocalStorageModule'
+	'stacksServices'
 ])
-.config(['localStorageServiceProvider', function(localStorageServiceProvider){
-  localStorageServiceProvider.setPrefix('stacks');
-  // The following two lines were originally commented out -DTS
-  localStorageServiceProvider.setStorageCookieDomain('stacks.io');
-  localStorageServiceProvider.setStorageType('sessionStorage');
-}]);
 
 stacksApp.config(function($routeProvider, $locationProvider) {
 	
