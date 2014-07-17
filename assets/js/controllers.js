@@ -25,7 +25,7 @@ var stacksControllers = angular.module('stacksControllers', [])
         //var data = this.latestData();
         var data = $localStorage.userprogress;
         // make an object from the local storage data
-        if(data != null ) { 
+        if(data != null ) {
           var dataObject = angular.fromJson(data);
         } else {
           var dataObject = angular.fromJson(stringTime.makeIt(''));
@@ -59,10 +59,12 @@ var stacksControllers = angular.module('stacksControllers', [])
   .controller('resultsController', ['$scope', '$localStorage',
     function($scope, $localStorage) {
       var storedData = angular.fromJson($localStorage.userprogress);
+      console.log("Results Controller");
+      console.log(storedData);
       $scope.results = storedData.results;
-      console.log(storedData.results);
       $scope.qfalse = [];
       $scope.qtrue = [];
+      //DAN: Correctly count number of true/false results.
       angular.forEach($scope.results, function(value,key){
         angular.forEach(value, function(value,key){
           if(value == "true") {

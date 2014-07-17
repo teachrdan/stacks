@@ -6,7 +6,7 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
   .factory('decks', function($http) {
       var product = $http.get('assets/json/decks.json')
       .success(function(data) {
-          return data;
+        return data;
      })
      return product;
   })
@@ -57,23 +57,24 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
           var match = false; //this sets match's initial value to false
             angular.forEach(data.results, function(value,key){
               for(var dataKey in value) {
-                 if(qKey == dataKey) {
-                  //If key exists, update value to latest user action value. If it doesn't exist, it adds the value.
-                  product.push('{"' + dataKey + '":"' + qVal + '"}');
-                  //console.log("They match: " + qKey + " equals " + dataKey + " set existing value to " + qVal);
-                  match = true; //If they match then match is set to true.
-                  // if the key matches replace it, if not then add the one we are matching, if it mathces none add it to the end
-                  } else {
-                  //else keep the old values
-                  product.push('{"' + dataKey + '":"' + value[dataKey] + '"}');
+                if(dataKey == "name") {
+                  if(qKey == value[dataKey]) {
+                    //If key exists, update value to latest user action value. If it doesn't exist, it adds the value.
+                    product.push('{ "name" : "' + value[dataKey] + '", "result" : "' + qVal + '" , "deck" : "test" }');
+                    //console.log("They match: " + qKey + " equals " + dataKey + " set existing value to " + qVal);
+                    match = true; //If they match then match is set to true.
+                    // if the key matches replace it, if not then add the one we are matching, if it mathces none add it to the end
+                    } else {
+                    //else keep the old values
+                    product.push('{ "name" : "' + value[dataKey] + '", "result" : "' + value["result"] + '", "deck" : "test" }');
+                  }
                 }
               }
             });
             if(match == false) {
-               product.push('{"' + qKey + '":"' + qVal + '"}');
-             }
-          return stringTime.makeIt(product);
+               product.push('{ "name" : "' + qKey + '", "result" : "' + qVal + '", "deck" : "test" }');
+            }
+        return stringTime.makeIt(product);
       }
     }
   }]);
-
