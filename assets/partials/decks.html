@@ -1,8 +1,29 @@
 <div>
 	<h2>List of Decks</h2>
 	<ul>
-		<li ng-repeat="deck in decks">
-		 <p ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}">{{deck.id}}</a></p>
+	  <li ng-repeat="deck in decks">
+	  <p ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}">{{deck.id}}</a></p>
 	  </li>
 	</ul> 
+</div>
+
+<div ng-controller="resultsController">
+
+   <h2>Your Results</h2>
+
+   <h3>{{qtrue.length}}/{{results.length}}</h3>
+   Number of questions answered: {{results.length}}<br /> <br />
+   Number that you got right: {{qtrue.length}}<br />
+   Number that you got wrong: {{qfalse.length}}
+   <br /><br />
+
+   <div ng-repeat="result in results">
+      <div ng-repeat="(value,key) in result">
+         Question: {{value}}
+         <br /> 
+         Result: {{key}}
+      </div>
+      <br />
+   </div>
+   {{results}}
 </div>

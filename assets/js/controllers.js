@@ -56,10 +56,11 @@ var stacksControllers = angular.module('stacksControllers', [])
       }
     }
   ])
-  .controller('resultsController', ['$scope', 'progress',
-    function($scope,progress) {
-      var storedData = angular.fromJson(progress.getData());
+  .controller('resultsController', ['$scope', '$localStorage',
+    function($scope, $localStorage) {
+      var storedData = angular.fromJson($localStorage.userprogress);
       $scope.results = storedData.results;
+      console.log(storedData.results);
       $scope.qfalse = [];
       $scope.qtrue = [];
       angular.forEach($scope.results, function(value,key){
