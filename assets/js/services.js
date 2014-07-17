@@ -12,17 +12,17 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
   })
   .factory('progress', function($window,$rootScope) {
     angular.element($window).on('storage', function(event){
-      if(event.key === 'user-progress') {
+      if(event.key === 'stacksApp-userprogress') {
         $rootScope.$apply();
       }
     });
     return {
       setData: function(val) {
-        $window.localStorage && $window.localStorage.setItem('user-progress', val);
+        $window.localStorage && $window.localStorage.setItem('stacksApp-userprogress', val);
         return this;
       },
       getData: function() {
-        return $window.localStorage && $window.localStorage.getItem('user-progress');
+        return $window.localStorage && $window.localStorage.getItem('stacksApp-userprogress');
       }
     }
   })
@@ -43,7 +43,7 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
       }
     }
   })
-  .factory('localstorage', ['stringTime', 
+  .factory('myStorage', ['stringTime', 
     function(stringTime){
     return { 
         update: function(val,data) {
@@ -72,7 +72,6 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
             if(match == false) {
                product.push('{"' + qKey + '":"' + qVal + '"}');
              }
-          //return '{"results" : ['+ product + ']}';
           return stringTime.makeIt(product);
       }
     }

@@ -10,39 +10,41 @@ var stacksControllers = angular.module('stacksControllers', [])
       })
     }
   ])
-  .controller('progressController', ['$scope', '$localStorage', 'localstorage', 'progress', 'stringTime',
-    function($scope, $localStorage, localstorage, progress, stringTime) {
+  .controller('progressController', ['$scope', '$localStorage', 'myStorage', 'progress', 'stringTime',
+    function($scope, $localStorage, myStorage, progress, stringTime) {
       this.value = progress.getData();
       this.latestData = function() {
         return progress.getData();
       };
       this.update = function(val) {
-        var data = this.latestData();
+
         var split = val.split(',');
         // make an object from the val
         var valObject = angular.fromJson('{"'+split[0]+'":"'+split[1]+'"}');
-        // make an object from the local stroage data
+
+        //var data = this.latestData();
+        var data = $localStorage.userprogress;
+        // make an object from the local storage data
         if(data != null ) { 
           var dataObject = angular.fromJson(data);
         } else {
           var dataObject = angular.fromJson(stringTime.makeIt(''));
         }
+
         // mush the two together
-        console.log("this is the data I pass to update");
-        console.log(dataObject);
-        var updated = localstorage.update(valObject,dataObject);
+        var updated = myStorage.update(valObject,dataObject);
         // make them a string cause fuck data storage
         var string = String(updated);
         console.log("this is what I will save");
         console.log(string);
         // put it back in storage
-        return progress.setData(string);
+        return updated;
       }
       $scope.$storage = $localStorage.$default({
-        showLocal: []
+        userprogress: []
       });
     $scope.$deleteLocal = function() {
-      delete $scope.$storage.showLocal;
+      delete $scope.$storage.userprogress;
     };
     }
   ])

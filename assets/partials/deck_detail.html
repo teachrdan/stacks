@@ -2,16 +2,15 @@
 	<div class="questions">
 	  <h2>Question:</h2>
 	  <h1>{{prompt[query].prompt}}</h1>
-			1 <span ng-click="guess=1; checkAnswer(guess,prompt[query].answer, prompt); m.update(prompt[query].name +','+result);">{{prompt[query].a1}}</span> <br />
-			2 <span ng-click="guess=2; checkAnswer(guess,prompt[query].answer, prompt); m.update(prompt[query].name +','+result);">{{prompt[query].a2}}</span> <br />
-			3 <span ng-click="guess=3; checkAnswer(guess,prompt[query].answer, prompt); m.update(prompt[query].name +','+result);">{{prompt[query].a3}}</span> <br />
-			4 <span ng-click="guess=4; checkAnswer(guess,prompt[query].answer, prompt); m.update(prompt[query].name +','+result);">{{prompt[query].a4}}</span> <br />
+			1 <span ng-click="guess=1; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name +','+result);">{{prompt[query].a1}}</span> <br />
+			2 <span ng-click="guess=2; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name +','+result);">{{prompt[query].a2}}</span> <br />
+			3 <span ng-click="guess=3; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name +','+result);">{{prompt[query].a3}}</span> <br />
+			4 <span ng-click="guess=4; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name +','+result);">{{prompt[query].a4}}</span> <br />
 			<br />
 			Answer: {{result}} <br />
 			Guess: {{guess}} vs Answer: {{prompt[query].answer}} <br /><br />
-			<button ng-click='query = query + 1; guess = 0; $storage.showLocal = $storage.showLocal + "{" + prompt[query-1].name + ":" + result + "},";' ng-init="query=0;">Next Question</button>
-			<h3>What's in user-progress: {{m.value}}</h3>
-			<h3>What's in showLocal: {{$storage.showLocal}}</h1>
+			<button ng-click='query = query + 1; guess = 0;' ng-init="query=0;">Next Question</button>
+			<h3>What's in showLocal: {{$storage.userprogress}}</h1> 
 			<button ng-click="$deleteLocal()">Delete showLocal</button>
 	    </div>
 	</div>
