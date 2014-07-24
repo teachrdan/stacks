@@ -1,6 +1,7 @@
 <div>
 	<h2>List of Decks</h2>
-	<ul>
+	<!-- DAN: For each deck run the results by deckId -->
+   <ul>
 	  <li ng-repeat="deck in decks">
 	  <p ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}">{{deck.id}}</a></p>
 	  </li>

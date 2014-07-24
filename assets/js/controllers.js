@@ -51,11 +51,16 @@ var stacksControllers = angular.module('stacksControllers', [])
     }
   ])
   .controller('resultsController', ['$scope', '$localStorage',
+    // DAN: Figure out how to filter through results by deckId, probably by creating a method that takes deckId to filter through results,
+    // and returns # of questions right and wrong for that deck
     function($scope, $localStorage) {
       var storedData = angular.fromJson($localStorage.userprogress);
       console.log("Results Controller");
       console.log(storedData);
-      $scope.results = storedData.results;
+      $scope.results = storedData.results; //DAN: Change this so it shows the total # of questions attempted by deckId
+
+
+
       $scope.qfalse = [];
       $scope.qtrue = [];
       angular.forEach($scope.results, function(value,key){
@@ -65,7 +70,7 @@ var stacksControllers = angular.module('stacksControllers', [])
           }
           if(value == "false") {
             $scope.qfalse.push(key);
-          } 
+          }
         })
       });
     }
