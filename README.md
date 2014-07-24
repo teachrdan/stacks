@@ -1,6 +1,8 @@
 #TODO
-- Dan: Make pretty display of local storage as it changes. The challenge is to get it to update every time it changes.
-- Margot: Add way to associate results in storage with deck name, show results by deck 
+
+- Dan: Show results by deck via deck.html or results page, for each individual deck (possibly by ngRepeat or with a filter)
+- Margot: Add way to associate results in storage with deck name, show results by deck
+
 #MVP
 
 Read: X# of questions for first deck.

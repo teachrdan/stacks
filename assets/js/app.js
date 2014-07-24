@@ -9,6 +9,10 @@ var stacksApp = angular.module('stacksApp', [
 	'stacksServices'
 ])
 
+stacksApp.filter('decodeURIComponent', function() {
+    return window.decodeURIComponent;
+});
+
 stacksApp.config(function($routeProvider, $locationProvider) {
 	
   // use the HTML5 History API

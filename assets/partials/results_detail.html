@@ -6,6 +6,7 @@ Number that you got right: {{qtrue.length}}<br />
 Number that you got wrong: {{qfalse.length}}
 <br /><br />
 
+<!--
 <div ng-repeat="result in results">
 	<div ng-repeat="(value,key) in result">
 		Question: {{value}}
@@ -13,5 +14,12 @@ Number that you got wrong: {{qfalse.length}}
 		Result: {{key}}
 	</div>
 	<br />
-</div>
+</div> -->
+
 {{results}}
+<br /> <br />
+<div ng-repeat="result in results">
+	<ul>
+		<li>{{result.name}}, {{result.prompt | decodeURIComponent}}, {{result.result}}, {{result.deck}}</li>
+	</ul>
+</div>

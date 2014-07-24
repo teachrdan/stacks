@@ -47,33 +47,37 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
     function(stringTime){
     return { 
         update: function(val,data) {
-          //val = the value of the users action. Look at the val object that arrived and get it into variables.
-          for(var k in val) {
-            var qKey = k;
-            var qVal = val[k];
-          }
-          // data = the data already in local storage.
           var product = [];
           var match = false; //this sets match's initial value to false
+
+          //val = the value of the users action. Look at the val object that arrived and get it into variables.
+          var qVal = val.name;
+
+          console.log(val);  
+          console.log(data.results);
+
+          // data = the data already in local storage.
             angular.forEach(data.results, function(value,key){
+              console.log(value);
               for(var dataKey in value) {
                 if(dataKey == "name") {
-                  if(qKey == value[dataKey]) {
+                  if(qVal == value[dataKey]) {
                     //If key exists, update value to latest user action value. If it doesn't exist, it adds the value.
-                    product.push('{ "name" : "' + value[dataKey] + '", "result" : "' + qVal + '" , "deck" : "test" }');
+                    product.push('{"name" : "' + val.name + '", "prompt" : "' + val.prompt + '", "result" : "' + val.result + '", "deck" : "' + val.deck + '"}');
                     //console.log("They match: " + qKey + " equals " + dataKey + " set existing value to " + qVal);
                     match = true; //If they match then match is set to true.
                     // if the key matches replace it, if not then add the one we are matching, if it mathces none add it to the end
-                    } else {
+                  } else {
                     //else keep the old values
-                    product.push('{ "name" : "' + value[dataKey] + '", "result" : "' + value["result"] + '", "deck" : "test" }');
+                    product.push('{"name" : "' + value.name + '", "prompt" : "' + value.prompt + '", "result" : "' + value.result + '", "deck" : "' + value.deck + '"}');
                   }
                 }
               }
             });
             if(match == false) {
-               product.push('{ "name" : "' + qKey + '", "result" : "' + qVal + '", "deck" : "test" }');
+               product.push('{"name" : "' + val.name + '", "prompt" : "' + val.prompt + '", "result" : "' + val.result + '", "deck" : "' + val.deck + '"}');
             }
+           console.log(stringTime.makeIt(product));
         return stringTime.makeIt(product);
       }
     }

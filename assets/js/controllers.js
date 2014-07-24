@@ -16,32 +16,25 @@ var stacksControllers = angular.module('stacksControllers', [])
       this.latestData = function() {
         return progress.getData();
       };
-      this.update = function(val) {
-
-        var split = val.split(',');
+      this.update = function(name, prompt, result, deck) {
+        //var split = val.split(',');
         // make an object from the val
-        var valObject = angular.fromJson('{"'+split[0]+'":"'+split[1]+'"}');
-
+        var valObject = angular.fromJson('{"name" : "'+name+'", "prompt" : "'+encodeURIComponent(prompt)+'", "result" : "'+result+'", "deck" : "'+deck+'"}');
         //var data = this.latestData();
         var data = $localStorage.userprogress;
         // make an object from the local storage data
         if(data != null ) {
           var dataObject = angular.fromJson(data);
         } else {
-          var dataObject = angular.fromJson(stringTime.makeIt(''));
+          var dataObject = angular.fromJson('{"results" : []}');
         }
-
         // mush the two together
         var updated = myStorage.update(valObject,dataObject);
-        // make them a string cause fuck data storage
-        var string = String(updated);
-        console.log("this is what I will save");
-        console.log(string);
         // put it back in storage
         return updated;
       }
       $scope.$storage = $localStorage.$default({
-        userprogress: []
+        userprogress: '{"results" : []}'
       });
     $scope.$deleteLocal = function() {
       delete $scope.$storage.userprogress;
@@ -51,6 +44,7 @@ var stacksControllers = angular.module('stacksControllers', [])
   .controller('questionsController', ['$scope', '$routeParams', 'questions',
     function($scope, $routeParams, questions) {
       $scope.prompt = questions.get({ deckId: $routeParams.deckId });
+      $scope.deckId = $routeParams.deckId;
       $scope.checkAnswer = function(guess, answer, prompt) {
         $scope.result = (guess === answer);
       }
@@ -64,7 +58,6 @@ var stacksControllers = angular.module('stacksControllers', [])
       $scope.results = storedData.results;
       $scope.qfalse = [];
       $scope.qtrue = [];
-      //DAN: Correctly count number of true/false results.
       angular.forEach($scope.results, function(value,key){
         angular.forEach(value, function(value,key){
           if(value == "true") {

@@ -2,10 +2,10 @@
 	<div class="questions">
 	  <h2>Question:</h2>
 	  <h1>{{prompt[query].prompt}}</h1>
-			1 <span ng-click="guess=1; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name +','+result);">{{prompt[query].a1}}</span> <br />
-			2 <span ng-click="guess=2; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name +','+result);">{{prompt[query].a2}}</span> <br />
-			3 <span ng-click="guess=3; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name +','+result);">{{prompt[query].a3}}</span> <br />
-			4 <span ng-click="guess=4; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name +','+result);">{{prompt[query].a4}}</span> <br />
+			1 <span ng-click="guess=1; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">{{prompt[query].a1}}</span> <br />
+			2 <span ng-click="guess=2; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">{{prompt[query].a2}}</span> <br />
+			3 <span ng-click="guess=3; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">{{prompt[query].a3}}</span> <br />
+			4 <span ng-click="guess=4; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">{{prompt[query].a4}}</span> <br />
 			<br />
 			Answer: {{result}} <br />
 			Guess: {{guess}} vs Answer: {{prompt[query].answer}} <br /><br />
@@ -15,3 +15,5 @@
 	    </div>
 	</div>
 </div>
+
+MEOW: {{deckId}}
