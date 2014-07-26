@@ -72,6 +72,30 @@ var stacksControllers = angular.module('stacksControllers', [])
             $scope.qfalse.push(key);
           }
         })
-      });
+      })
+      $scope.rightCount = function(deckName,data) {
+        var rightSoFar = 0;
+        for (var n=0; n<data.length; n++) {
+          if (data[n].deck == deckName) {
+            if (data[n].result == 'true') {
+              rightSoFar++;
+            }
+          }
+        }
+        return rightSoFar;
+      }
+      $scope.byDeck = function(deckName,data) {
+        var ansSoFar = null;
+        for (var n=0; n<data.length; n++) {
+          if (data[n].deck == deckName) {
+            if (ansSoFar == null) {
+              ansSoFar = (data[n].name + " : " + data[n].result);
+            } else {
+              ansSoFar = ansSoFar + ", " + (data[n].name + " : " + data[n].result);
+            }
+          }
+        }
+      return ansSoFar;
+      }
     }
   ]);

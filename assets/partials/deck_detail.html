@@ -1,5 +1,5 @@
 <div ng-controller="progressController as m">
-	<div class="questions">
+	<div ng-controller="resultsController" class="questions">
 	  <h2>Question:</h2>
 	  <h1>{{prompt[query].prompt}}</h1>
 			1 <span ng-click="guess=1; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">{{prompt[query].a1}}</span> <br />
@@ -10,10 +10,10 @@
 			Answer: {{result}} <br />
 			Guess: {{guess}} vs Answer: {{prompt[query].answer}} <br /><br />
 			<button ng-click='query = query + 1; guess = 0;' ng-init="query=0;">Next Question</button>
-			<h3>What's in showLocal: {{$storage.userprogress}}</h1> 
+			<b><p>What's in showLocal: {{$storage.userprogress}}</p></b>
 			<button ng-click="$deleteLocal()">Delete showLocal</button>
 	    </div>
 	</div>
 </div>
-
-MEOW: {{deckId}}
+<br /> <br />
+<a href="#/results">Results Page</a>

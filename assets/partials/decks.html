@@ -1,30 +1,16 @@
 <div>
 	<h2>List of Decks</h2>
 	<!-- DAN: For each deck run the results by deckId -->
-   <ul>
-	  <li ng-repeat="deck in decks">
-	  <p ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}">{{deck.id}}</a></p>
-	  </li>
-	</ul> 
-</div>
-
-<div ng-controller="resultsController">
-
-   <h2>Your Results</h2>
-
-   <h3>{{qtrue.length}}/{{results.length}}</h3>
-   Number of questions answered: {{results.length}}<br /> <br />
-   Number that you got right: {{qtrue.length}}<br />
-   Number that you got wrong: {{qfalse.length}}
-   <br /><br />
-
-   <div ng-repeat="result in results">
-      <div ng-repeat="(value,key) in result">
-         Question: {{value}}
-         <br /> 
-         Result: {{key}}
-      </div>
-      <br />
+   <div ng-controller="resultsController">
+      <ul>
+	    <li ng-repeat="deck in decks">
+	    <p ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}"><b>Deck:</b> {{deck.id | uppercase}}</a> <br />
+      <b>Questions Answered:</b> {{byDeck(deck.id, results)}}<br />
+      <b>Right Answers So Far:</b> {{rightCount(deck.id, results)}}</p>
+	    </li>
+	  </ul>
+     {{results}}<br />
    </div>
-   {{results}}
 </div>
+<br /> <br />
+<a href="#/results">Results Page</a>
