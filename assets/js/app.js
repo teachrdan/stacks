@@ -6,7 +6,8 @@ var stacksApp = angular.module('stacksApp', [
 	'ngRoute',
   'ngStorage',
 	'stacksControllers',
-	'stacksServices'
+	'stacksServices',
+  'stacksDirectives'
 ])
 
 stacksApp.filter('decodeURIComponent', function() {

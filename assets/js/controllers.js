@@ -3,8 +3,8 @@
 /* Controllers */
 
 var stacksControllers = angular.module('stacksControllers', [])
-  .controller('decksController', ['$scope', 'decks',
-    function($scope, decks) {
+  .controller('decksController', ['$scope', 'decks', 'questions',
+    function($scope, decks, questions) {
       decks.then(function(data) {
         $scope.decks = data.data;
       })
@@ -23,7 +23,7 @@ var stacksControllers = angular.module('stacksControllers', [])
         //var data = this.latestData();
         var data = $localStorage.userprogress;
         // make an object from the local storage data
-        if(data != null ) {
+        if(data != null) {
           var dataObject = angular.fromJson(data);
         } else {
           var dataObject = angular.fromJson('{"results" : []}');
@@ -45,22 +45,35 @@ var stacksControllers = angular.module('stacksControllers', [])
     function($scope, $routeParams, questions) {
       $scope.prompt = questions.get({ deckId: $routeParams.deckId });
       $scope.deckId = $routeParams.deckId;
+      // Counts total number of questions in a deck
+      $scope.total = function() {
+        var total = 0;
+        total = $scope.prompt.length;
+        return total;
+      }
+      // Counts number of questions attempted in this deck
+      $scope.ansSoFar = function(deckId,data) {
+        var deckQuestionCount = 0;
+        for(var n=0; n<data.length; n++) {
+          // Checks if questions attempted were in the current deck
+          if(data[n].deck==deckId) {
+            deckQuestionCount++;
+          }
+        }
+        return deckQuestionCount;
+      }
+      // Checks if question was answered correctly
       $scope.checkAnswer = function(guess, answer, prompt) {
         $scope.result = (guess === answer);
       }
     }
   ])
   .controller('resultsController', ['$scope', '$localStorage',
-    // DAN: Figure out how to filter through results by deckId, probably by creating a method that takes deckId to filter through results,
-    // and returns # of questions right and wrong for that deck
     function($scope, $localStorage) {
       var storedData = angular.fromJson($localStorage.userprogress);
       console.log("Results Controller");
       console.log(storedData);
-      $scope.results = storedData.results; //DAN: Change this so it shows the total # of questions attempted by deckId
-
-
-
+      $scope.results = storedData.results;
       $scope.qfalse = [];
       $scope.qtrue = [];
       angular.forEach($scope.results, function(value,key){
@@ -73,6 +86,7 @@ var stacksControllers = angular.module('stacksControllers', [])
           }
         })
       })
+      // Counts number of right answers so far
       $scope.rightCount = function(deckName,data) {
         var rightSoFar = 0;
         for (var n=0; n<data.length; n++) {

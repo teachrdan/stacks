@@ -28,7 +28,7 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
   })
   .factory('questions', ['$resource',
     function($resource) {
-      var product = $resource('assets/json/:deckId.json', {}, 
+      var product = $resource('assets/json/:deckId.json', {},
       {
         get: {method:'GET', params:{}, isArray:true}
       })

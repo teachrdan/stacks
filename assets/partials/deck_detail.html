@@ -10,8 +10,10 @@
 			Answer: {{result}} <br />
 			Guess: {{guess}} vs Answer: {{prompt[query].answer}} <br /><br />
 			<button ng-click='query = query + 1; guess = 0;' ng-init="query=0;">Next Question</button>
-			<b><p>What's in showLocal: {{$storage.userprogress}}</p></b>
-			<button ng-click="$deleteLocal()">Delete showLocal</button>
+			<br /> <br />
+			You have completed <b>{{ansSoFar(deckId,results)}}</b> of <b>{{total()}}</b> total questions in this deck.<br /> <br />
+			<p>What's in userprogress: {{$storage.userprogress}}</p>
+			<button ng-click="$deleteLocal()">Delete userprogress</button>
 	    </div>
 	</div>
 </div>

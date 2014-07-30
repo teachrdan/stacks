@@ -4,12 +4,11 @@
    <div ng-controller="resultsController">
       <ul>
 	    <li ng-repeat="deck in decks">
-	    <p ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}"><b>Deck:</b> {{deck.id | uppercase}}</a> <br />
-      <b>Questions Answered:</b> {{byDeck(deck.id, results)}}<br />
-      <b>Right Answers So Far:</b> {{rightCount(deck.id, results)}}</p>
+	      <p ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}"><b>Deck:</b> {{deck.id | uppercase}}</a></p> 
+         <b>Questions Answered:</b> {{byDeck(deck.id, results)}}<br />
+         <b>Right Answers So Far:</b> {{rightCount(deck.id, results)}} out of <b><question-count></question-count></b> total questions in this deck.
 	    </li>
 	  </ul>
-     {{results}}<br />
    </div>
 </div>
 <br /> <br />
