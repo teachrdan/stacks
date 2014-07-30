@@ -1,14 +1,17 @@
 [ 
     { 
         "id": "regex1",
+        "name" : "Regular Expressions Beginner",
         "description": "Beginner: The individual regular expressions they you'll use every day."
     },
     {   
         "id": "regex2",
+        "name" : "Regular Expressions Intermediate",
         "description": "Intermediate: Combinations of regex that will help you code with power."
     },
     {   
         "id": "regex3",
+        "name" : "Regular Expressions Never End",
         "description": "Advanced: Match the regex to the text that it matches."
     }
 ]

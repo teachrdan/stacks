@@ -98,6 +98,26 @@ var stacksControllers = angular.module('stacksControllers', [])
         }
         return rightSoFar;
       }
+      $scope.wrongCount = function(deckName,data) {
+        var wrongSoFar = 0;
+        for (var n=0; n<data.length; n++) {
+          if (data[n].deck == deckName) {
+            if (data[n].result == 'false') {
+              wrongSoFar++;
+            }
+          }
+        }
+        return wrongSoFar;
+      }
+      $scope.deckCount = function(deckName,data) {
+        var deck = 0;
+        for (var n=0; n<data.length; n++) {
+          if (data[n].deck == deckName) {
+              deck++;
+          }
+        }
+        return deck;
+      }
       $scope.byDeck = function(deckName,data) {
         var ansSoFar = null;
         for (var n=0; n<data.length; n++) {

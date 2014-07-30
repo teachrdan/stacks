@@ -1,12 +1,12 @@
 <div>
-	<h2>List of Decks</h2>
-	<!-- DAN: For each deck run the results by deckId -->
+	<h2>Welcome to Stacks</h2>
+   <p>Select a deck to practice your regular expression skills!</p>
    <div ng-controller="resultsController">
       <ul>
 	    <li ng-repeat="deck in decks">
-	      <p ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}"><b>Deck:</b> {{deck.id | uppercase}}</a></p> 
-         <b>Questions Answered:</b> {{byDeck(deck.id, results)}}<br />
-         <b>Right Answers So Far:</b> {{rightCount(deck.id, results)}} out of <b><question-count></question-count></b> total questions in this deck.
+	      <p ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}"><b>{{deck.name}}</b></a></p> 
+         <b>Current Results: </b> {{deckCount(deck.id, results)}} Questions Attempted out of <b><question-count></question-count></b> total questions in this deck.</br>
+         <b>Score:</b> {{rightCount(deck.id, results)}} out of {{deckCount(deck.id, results)}}
 	    </li>
 	  </ul>
    </div>

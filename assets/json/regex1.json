@@ -1,12 +1,12 @@
 [
     {
-        "prompt": "!",
+        "prompt": "$",
         "name": "reg1q1",
         "a1": "Period",
         "a2": "End of line",
         "a3": "Any character",
         "a4": "None of the above.",
-        "answer": 3
+        "answer": 2
     },
     {
         "prompt": "*",
