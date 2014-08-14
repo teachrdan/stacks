@@ -3,11 +3,16 @@
 /* Controllers */
 
 var stacksControllers = angular.module('stacksControllers', [])
-  .controller('decksController', ['$scope', 'decks', 'questions',
-    function($scope, decks, questions) {
+  .controller('decksController', ['$scope', 'decks', 'questions', '$localStorage', '$route',
+    function($scope, decks, questions, $localStorage, $route) {
       decks.then(function(data) {
         $scope.decks = data.data;
       })
+      console.log("meow", $localStorage.userprogress);
+      $scope.deleteLocal = function() {
+        delete $localStorage.userprogress;
+        $route.reload();
+      };
     }
   ])
   .controller('progressController', ['$scope', '$localStorage', 'myStorage', 'progress', 'stringTime',
@@ -36,9 +41,6 @@ var stacksControllers = angular.module('stacksControllers', [])
       $scope.$storage = $localStorage.$default({
         userprogress: '{"results" : []}'
       });
-    $scope.$deleteLocal = function() {
-      delete $scope.$storage.userprogress;
-    };
     }
   ])
   .controller('questionsController', ['$scope', '$routeParams', 'questions',
@@ -66,6 +68,17 @@ var stacksControllers = angular.module('stacksControllers', [])
       $scope.checkAnswer = function(guess, answer, prompt) {
         $scope.result = (guess === answer);
       }
+      $scope.response = function(result,guess) {
+        if (guess == 0) {
+          return "";
+        } else if($scope.result == true) {
+          return "Correct!";
+        } else if($scope.result == false) {
+          return "Wrong";
+        } else {
+          return "";
+        }
+      }
     }
   ])
   .controller('resultsController', ['$scope', '$localStorage',
@@ -75,7 +88,6 @@ var stacksControllers = angular.module('stacksControllers', [])
     } else {
       var storedData = angular.fromJson('{"results" : []}');
     }
-      console.log("Results Controller", storedData);
       $scope.results = storedData.results;
       $scope.qfalse = [];
       $scope.qtrue = [];

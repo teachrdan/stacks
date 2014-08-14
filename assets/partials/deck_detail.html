@@ -7,15 +7,13 @@
 			3 <span ng-click="guess=3; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">{{prompt[query].a3}}</span> <br />
 			4 <span ng-click="guess=4; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">{{prompt[query].a4}}</span> <br />
 			<br />
-			Answer: {{result}} <br />
-			Guess: {{guess}} vs Answer: {{prompt[query].answer}} <br /><br />
+			<h3>{{response(result,guess)}}</h3>
+			<br />
 			<button ng-click='query = query + 1; guess = 0;' ng-init="query=0;">Next Question</button>
 			<br /> <br />
 			You have completed <b>{{ansSoFar(deckId,results)}}</b> of <b>{{total()}}</b> total questions in this deck.<br /> <br />
-			<p>What's in userprogress: {{$storage.userprogress}}</p>
-			<button ng-click="$deleteLocal()">Delete userprogress</button>
 	    </div>
 	</div>
 </div>
-<br /> <br />
-<a href="#/results">Results Page</a>
+<br />
+<a href="/">Home Page</a>

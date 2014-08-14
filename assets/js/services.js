@@ -53,18 +53,13 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
           //val = the value of the users action. Look at the val object that arrived and get it into variables.
           var qVal = val.name;
 
-          console.log(val);  
-          console.log(data.results);
-
           // data = the data already in local storage.
             angular.forEach(data.results, function(value,key){
-              console.log(value);
               for(var dataKey in value) {
                 if(dataKey == "name") {
                   if(qVal == value[dataKey]) {
                     //If key exists, update value to latest user action value. If it doesn't exist, it adds the value.
                     product.push('{"name" : "' + val.name + '", "prompt" : "' + val.prompt + '", "result" : "' + val.result + '", "deck" : "' + val.deck + '"}');
-                    //console.log("They match: " + qKey + " equals " + dataKey + " set existing value to " + qVal);
                     match = true;
                     // if the key matches replace it, if not then add the one we are matching, if it matches none add it to the end
                   } else {
@@ -77,7 +72,6 @@ var stacksServices = angular.module('stacksServices', ['ngResource'])
             if(match == false) {
                product.push('{"name" : "' + val.name + '", "prompt" : "' + val.prompt + '", "result" : "' + val.result + '", "deck" : "' + val.deck + '"}');
             }
-           console.log(stringTime.makeIt(product));
         return stringTime.makeIt(product);
       }
     }
