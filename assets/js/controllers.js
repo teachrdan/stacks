@@ -70,9 +70,12 @@ var stacksControllers = angular.module('stacksControllers', [])
   ])
   .controller('resultsController', ['$scope', '$localStorage',
     function($scope, $localStorage) {
-      var storedData = angular.fromJson($localStorage.userprogress);
-      console.log("Results Controller");
-      console.log(storedData);
+      if($localStorage.userprogress != null){
+      var storedData = angular.fromJson($localStorage.userprogress)
+    } else {
+      var storedData = angular.fromJson('{"results" : []}');
+    }
+      console.log("Results Controller", storedData);
       $scope.results = storedData.results;
       $scope.qfalse = [];
       $scope.qtrue = [];
