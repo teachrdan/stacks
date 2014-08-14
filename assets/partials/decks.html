@@ -1,15 +1,19 @@
-<div>
-	<h2>Welcome to Stacks</h2>
+<div id="homepage">
+	<h1>Welcome to Stacks</h1>
    <p>Select a deck to practice your regular expression skills!</p>
    <div ng-controller="resultsController">
-      <ul>
+      <ul id="deck-list">
 	    <li ng-repeat="deck in decks">
-	      <p ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}"><b>{{deck.name}}</b></a></p> 
-         <b>Current Results: </b> {{deckCount(deck.id, results)}} Questions Attempted out of <b><question-count></question-count></b> total questions in this deck.</br>
-         <b>Score:</b> {{rightCount(deck.id, results)}} out of {{deckCount(deck.id, results)}}
+	      <h2 ng-model="userChoice" ng-click="setUserChoice(deck.id)"><a href="/#{{deck.id}}">{{deck.name}}</a></h2>
+         <div class="results">
+            <b>Your Score:</b> {{rightCount(deck.id, results)}} out of {{deckCount(deck.id, results)}}<br/>
+            {{deckCount(deck.id, results)}} Questions Attempted out of <b><question-count></question-count></b> total questions in this deck.</br>
+         </div>
 	    </li>
 	  </ul>
    </div>
+   <br /> <br />
+   <button ng-click="deleteLocal()" class="warn">Delete Progress and Start Again</button>
+   <div class="clear"></div>
 </div>
-<br /> <br />
-<button ng-click="deleteLocal()">Delete Progress and Start Again</button>
+

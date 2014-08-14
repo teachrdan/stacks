@@ -1,11 +1,11 @@
 <div ng-controller="progressController as m">
 	<div ng-controller="resultsController" class="questions">
-	  <h2>Question:</h2>
+	  <h2>What does this expression mean:</h2>
 	  <h1>{{prompt[query].prompt}}</h1>
-			1 <span ng-click="guess=1; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">{{prompt[query].a1}}</span> <br />
-			2 <span ng-click="guess=2; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">{{prompt[query].a2}}</span> <br />
-			3 <span ng-click="guess=3; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">{{prompt[query].a3}}</span> <br />
-			4 <span ng-click="guess=4; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">{{prompt[query].a4}}</span> <br />
+			<span ng-class="{'wrong': guess==1, 'correct': (result==true && guess==1)}" ng-click="guess=1; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">1. {{prompt[query].a1}}</span> <br />
+			<span ng-class="{'wrong': guess==2, 'correct': (result==true && guess==2)}" ng-click="guess=2; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">2. {{prompt[query].a2}}</span> <br />
+			<span ng-class="{'wrong': guess==3, 'correct': (result==true && guess==3)}" ng-click="guess=3; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">3. {{prompt[query].a3}}</span> <br />
+			<span ng-class="{'wrong': guess==4, 'correct': (result==true && guess==4)}" ng-click="guess=4; checkAnswer(guess,prompt[query].answer, prompt); $storage.userprogress = m.update(prompt[query].name,prompt[query].prompt,result,deckId);">4. {{prompt[query].a4}}</span> <br />
 			<br />
 			<h3>{{response(result,guess)}}</h3>
 			<br />
@@ -16,4 +16,4 @@
 	</div>
 </div>
 <br />
-<a href="/">Home Page</a>
+<div class="navigation"><a href="/">Home Page &raquo;</a></div>
