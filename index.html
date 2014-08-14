@@ -18,11 +18,16 @@
 		<script src="assets/js/directives.js"></script>
 		<!-- Local Storage service -->
 		<script src="assets/js/ngStorage.js"></script>
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="assets/style.css" />
 		<!-- TITLE -->
 		<title>Stacks</title>
 	</head>
 	<body>
 		<!-- Partials go here -->
-		<ng-view></ng-view>
+		<div id="frame">
+			<ng-view></ng-view>
+		</div>
+		<div id="copyright">Stacks is an open-source project of Margot B. (margot@github) and Dan T-S. (teachrdan@github) that was created to help us develop our AngularJS skills. </div>
 	</body>
 </html>
